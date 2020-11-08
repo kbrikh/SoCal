@@ -1,0 +1,7 @@
+{
+  "name": "soldissime",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
