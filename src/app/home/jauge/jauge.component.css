@@ -1,0 +1,16 @@
+.flex-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    max-width: 300px;
+    width: 100%;
+}
+
+.bg {
+    background-color: rgb(233, 233, 233);
+    border-radius: 5%;
+}
+
+.canvas {
+    position: absolute;
+}

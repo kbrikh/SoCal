@@ -1,20 +1,50 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
+<ion-content [fullscreen]="true" class="ion-padding">
   <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <div>
+      <h3 class="title">SOLDISSIME</h3>
+    </div>
+
+    <div class="setup">
+      <ion-item>
+        <ion-label>Custom</ion-label>
+        <ion-toggle [(ngModel)]="custom" mode="ios"></ion-toggle>
+      </ion-item>
+    </div>
+
+    <div class="saisie">
+      <ion-input type="number" placeholder="Votre prix" clearInput="true" inputMode="decimal"
+                 [(ngModel)]="inputPrice">
+      </ion-input>
+    </div>
+
+    <div class="resultat">
+      <strong>{{ newPrice  | currency:"EUR":"symbol" }}</strong>
+    </div>
+
+    <div class="reduction">
+      <div *ngIf="!custom; else reductionCustom">
+        <ion-row>
+          <ion-col *ngFor="let reduction of reductions" size="3">
+            <button (click)="getOffPrice(reduction)">{{ '-' + reduction }}</button>
+          </ion-col>
+        </ion-row>
+      </div>
+    </div>
   </div>
 </ion-content>
+
+
+<ng-template #reductionCustom>
+  <div class="custom-reduction">
+      <app-jauge [percent]="customReduc" [color]="'red'" [card]="true"></app-jauge>
+  </div>
+  <div style="width: 100%;">
+    <ion-item>
+      <ion-range min="0" max="100" step="1" pin="true" color="danger"
+                 (ionChange)="customChange($event)" [(ngModel)]="customReduc">
+        <ion-label slot="start">0</ion-label>
+        <ion-label slot="end">100</ion-label>
+      </ion-range>
+    </ion-item>
+  </div>
+</ng-template>
