@@ -10,13 +10,13 @@ export class HomePage {
     public inputPrice: string;
     public newPrice: number;
     public custom: boolean = false;
-    public customReduc;
+    public customReduc: number;
 
     constructor() {}
 
-    getOffPrice(reduction) {
+    getOffPrice(reduction: number): void {
         let price = parseFloat(this.inputPrice);
-        const reduc = parseFloat(reduction) / 100;
+        const reduc = reduction / 100;
 
         this.customReduc = reduction;
 
@@ -30,6 +30,6 @@ export class HomePage {
 
     customChange(ev) {
         this.getOffPrice(parseInt(ev.detail.value, 10));
-        console.log(ev);
+        console.log(ev.detail);
     }
 }
