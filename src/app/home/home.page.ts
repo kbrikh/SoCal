@@ -30,6 +30,5 @@ export class HomePage {
 
     customChange(ev) {
         this.getOffPrice(parseInt(ev.detail.value, 10));
-        console.log(ev.detail);
     }
 }
