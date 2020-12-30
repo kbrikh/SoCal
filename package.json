@@ -10,7 +10,7 @@
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e",
-        "resources": "node_modules/capacitor-resources/bin/capacitor-resources"
+        "resources": "cordova-res android --skip-config && node scripts/resources.js"
     },
     "private": true,
     "dependencies": {
@@ -20,6 +20,7 @@
         "@angular/platform-browser": "~10.0.0",
         "@angular/platform-browser-dynamic": "~10.0.0",
         "@angular/router": "~10.0.0",
+        "@capacitor/android": "^2.4.2",
         "@capacitor/core": "2.4.2",
         "@ionic-native/core": "^5.0.0",
         "@ionic-native/splash-screen": "^5.0.0",
