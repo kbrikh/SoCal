@@ -3,7 +3,7 @@
         <ion-grid>
             <ion-row>
                 <div>
-                    <h3 class="title">SOLDISSIME</h3>
+                    <h3 class="title">SOLDE CALCULATOR</h3>
                 </div>
             </ion-row>
 
@@ -12,7 +12,8 @@
                     <div class="setup">
                         <ion-item>
                             <ion-label>Custom</ion-label>
-                            <ion-toggle [(ngModel)]="custom" mode="ios"></ion-toggle>
+                            <ion-toggle [(ngModel)]="custom" mode="ios">
+                            </ion-toggle>
                         </ion-item>
                     </div>
 
@@ -24,6 +25,16 @@
 
                     <div class="resultat">
                         <strong>{{ newPrice | currency:"EUR":"symbol" }}</strong>
+                    </div>
+                    <hr>
+                    <div>
+                        <ion-chip color="danger">
+                            <ion-icon name="pricetag-outline"></ion-icon>
+                            <ion-label color="dark"><strong>{{ 'Votre réduction: ' + (-1 *
+                                    customReduc || 0)
+                                    }}</strong>
+                            </ion-label>
+                        </ion-chip>
                     </div>
                 </ion-col>
 
@@ -44,14 +55,14 @@
     </div>
 </ion-content>
 
-
 <ng-template #reductionCustom>
     <div class="custom-reduction">
         <app-jauge [percent]="customReduc" [color]="'red'" [card]="true"></app-jauge>
     </div>
+
     <div style="width: 100%;">
         <ion-item>
-            <ion-range min="0" max="100" step="1" pin="true" color="danger"
+            <ion-range min="0" max="100" step="1" pin="true" mode="ios" color="tertiary"
                        (ionChange)="customChange($event)" [(ngModel)]="customReduc">
                 <ion-label slot="start">0</ion-label>
                 <ion-label slot="end">100</ion-label>
