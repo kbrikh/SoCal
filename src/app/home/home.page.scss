@@ -53,12 +53,14 @@ $block-padding: 7px;
 
 .reduction button:active {
   background-color: rgb(221, 63, 95);
+  color: white;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
 
 .reduction button:hover {
   background-color: rgb(161, 7, 38);
+  color: white;
 }
 
 
