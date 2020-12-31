@@ -23,12 +23,12 @@ npm-debug.log*
 /.sourcemaps
 /.versions
 /.vscode
+/android
 /coverage
 /dist
+/electron
+/ios
 /node_modules
 /platforms
-/android
-/ios
-/electron
 /plugins
 /www
