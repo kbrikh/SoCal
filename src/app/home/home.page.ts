@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
     selector: 'app-home',
@@ -6,11 +7,29 @@ import { Component } from '@angular/core';
     styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-    public reductions = [10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90];
+    public reductions = [
+        10,
+        15,
+        20,
+        25,
+        30,
+        35,
+        40,
+        45,
+        50,
+        55,
+        60,
+        65,
+        70,
+        75,
+        80,
+        85,
+        90,
+    ];
     public inputPrice: string;
     public newPrice: number;
     public custom: boolean = false;
-    public customReduc: number;
+    public customReduc: number = 0;
 
     constructor() {}
 
@@ -24,11 +43,26 @@ export class HomePage {
             price = 0;
         }
 
-        this.newPrice = price * (1 - reduc);
-        this.newPrice = Math.round(this.newPrice * 100) / 100;
+        this.compute(price, reduc);
     }
 
-    customChange(ev) {
+    compute(price: number, reduc: number): void {
+        this.newPrice = Math.round(price * (1 - reduc) * 100) / 100;
+    }
+
+    customChange(ev): void {
         this.getOffPrice(parseInt(ev.detail.value, 10));
+    }
+
+    updateOnChange(ev): void {
+        if (this.customReduc) {
+            let price = parseFloat(ev.detail.value);
+
+            if (isNaN(price)) {
+                price = 0;
+            }
+
+            this.compute(price, this.customReduc / 100);
+        }
     }
 }
