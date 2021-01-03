@@ -1,5 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'app-home',
@@ -7,7 +6,7 @@ import { FormControl } from '@angular/forms';
     styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-    public reductions = [
+    public reductions: number[] = [
         10,
         15,
         20,
@@ -50,11 +49,11 @@ export class HomePage {
         this.newPrice = Math.round(price * (1 - reduc) * 100) / 100;
     }
 
-    customChange(ev): void {
+    customChange(ev: CustomEvent): void {
         this.getOffPrice(parseInt(ev.detail.value, 10));
     }
 
-    updateOnChange(ev): void {
+    updateOnChange(ev: CustomEvent): void {
         if (this.customReduc) {
             let price = parseFloat(ev.detail.value);
 

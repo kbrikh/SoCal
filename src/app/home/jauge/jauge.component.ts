@@ -7,7 +7,7 @@ import {
     SimpleChanges,
 } from '@angular/core';
 
-const START_AT = 0;
+const START_AT: number = 0;
 @Component({
     selector: 'app-jauge',
     templateUrl: './jauge.component.html',
@@ -15,9 +15,8 @@ const START_AT = 0;
 })
 export class JaugeComponent implements OnInit, OnChanges {
     @Input() color: string;
-    @Input() percent: any;
+    @Input() percent: number;
     @Input() card: boolean = true;
-    public myIntervals: any;
     public min = START_AT;
     public radius: number = 90;
     public canvas: HTMLCanvasElement;
@@ -31,14 +30,14 @@ export class JaugeComponent implements OnInit, OnChanges {
         this.draw(this.percent);
     }
 
-    draw(percent): void {
+    draw(percent: number): void {
         this.canvas = this.elm.nativeElement.querySelector('#score canvas');
-        percent = parseInt(percent, 10);
+        // percent = parseInt(percent, 10);
         percent = percent > 0 && percent <= 100 ? percent : 0;
         this.increment(percent);
     }
 
-    ngOnChanges(changes: SimpleChanges) {
+    ngOnChanges(changes: SimpleChanges): void {
         this.draw(changes.percent.currentValue);
     }
 
@@ -46,7 +45,7 @@ export class JaugeComponent implements OnInit, OnChanges {
      **	setInterval de increment(min, max, target)
      **	@param max: int - entre 0 et 100
      */
-    increment(max): any {
+    increment(max: number): void {
         for (let idx = 0; idx <= max; idx++) {
             this.circle(idx);
         }

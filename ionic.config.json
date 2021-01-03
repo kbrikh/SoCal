@@ -1,7 +1,7 @@
 {
-  "name": "soldissime",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
+    "name": "socal",
+    "integrations": {
+        "capacitor": {}
+    },
+    "type": "angular"
 }

@@ -7,14 +7,8 @@ import { JaugeComponent } from './jauge/jauge.component';
 
 import { HomePageRoutingModule } from './home-routing.module';
 
-
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    HomePageRoutingModule
-  ],
-  declarations: [HomePage, JaugeComponent]
+    imports: [CommonModule, FormsModule, IonicModule, HomePageRoutingModule],
+    declarations: [HomePage, JaugeComponent],
 })
 export class HomePageModule {}
