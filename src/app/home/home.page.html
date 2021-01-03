@@ -19,7 +19,8 @@
 
                     <div class="saisie">
                         <ion-input type="number" placeholder="Votre prix" clearInput="true"
-                                   inputMode="decimal" [(ngModel)]="inputPrice">
+                                   inputMode="decimal" #saisie=ngModel
+                                   (ionChange)="updateOnChange($event)" [(ngModel)]="inputPrice">
                         </ion-input>
                     </div>
 

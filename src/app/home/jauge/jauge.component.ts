@@ -1,4 +1,11 @@
-import { Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import {
+    Component,
+    ElementRef,
+    Input,
+    OnChanges,
+    OnInit,
+    SimpleChanges,
+} from '@angular/core';
 
 const START_AT = 0;
 @Component({
@@ -61,7 +68,7 @@ export class JaugeComponent implements OnInit, OnChanges {
         this.context = this.canvas.getContext('2d');
 
         this.context.font = '30px Arial';
-        this.context.fillText('-' + data + '%', 120, 155);
+        this.context.fillText((data > 0 ? '-' : ' ') + data + '%', 120, 155);
         this.context.beginPath();
         this.context.arc(cx, cy, this.radius, 0, 2 * Math.PI);
         this.context.lineWidth = 20;
